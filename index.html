@@ -3,556 +3,417 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Swiss Painter & Construction Websites</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+    <title>Maler Dashboard - Übersicht aller Betriebe</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        border: "hsl(214.3 31.8% 91.4%)",
+                        input: "hsl(214.3 31.8% 91.4%)",
+                        ring: "hsl(222.2 84% 4.9%)",
+                        background: "hsl(0 0% 100%)",
+                        foreground: "hsl(222.2 84% 4.9%)",
+                        primary: {
+                            DEFAULT: "hsl(222.2 47.4% 11.2%)",
+                            foreground: "hsl(210 40% 98%)",
+                        },
+                        secondary: {
+                            DEFAULT: "hsl(210 40% 96%)",
+                            foreground: "hsl(222.2 84% 4.9%)",
+                        },
+                        muted: {
+                            DEFAULT: "hsl(210 40% 96%)",
+                            foreground: "hsl(215.4 16.3% 46.9%)",
+                        },
+                        accent: {
+                            DEFAULT: "hsl(210 40% 96%)",
+                            foreground: "hsl(222.2 84% 4.9%)",
+                        },
+                        card: {
+                            DEFAULT: "hsl(0 0% 100%)",
+                            foreground: "hsl(222.2 84% 4.9%)",
+                        },
+                    },
+                },
+            },
         }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: #f8fafc;
-            min-height: 100vh;
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem 1rem;
-        }
-
-        .header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .header h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #1e293b;
-            margin-bottom: 0.5rem;
-        }
-
-        .header p {
-            font-size: 1.125rem;
-            color: #64748b;
-            font-weight: 400;
-        }
-
-        .websites-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 3rem;
-        }
-
-        .website-card {
-            background: white;
-            border-radius: 12px;
-            padding: 1.5rem;
-            border: 1px solid #e2e8f0;
-            transition: all 0.2s ease;
-        }
-
-        .website-card:hover {
-            border-color: #3b82f6;
-            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
-        }
-
-        .card-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1rem;
-        }
-
-        .card-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 8px;
-            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 1rem;
-            color: white;
-            font-size: 1.25rem;
-            flex-shrink: 0;
-        }
-
-        .card-title {
-            font-size: 1.125rem;
-            font-weight: 600;
-            color: #1e293b;
-            line-height: 1.4;
-        }
-
-        .card-description {
-            color: #64748b;
-            margin-bottom: 1.5rem;
-            font-size: 0.875rem;
-            line-height: 1.5;
-        }
-
-        .card-actions {
-            display: flex;
-            gap: 0.75rem;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            text-decoration: none;
-            font-size: 0.875rem;
-            font-weight: 500;
-            transition: all 0.2s ease;
-            border: 1px solid;
-        }
-
-        .btn-primary {
-            background: #3b82f6;
-            color: white;
-            border-color: #3b82f6;
-        }
-
-        .btn-primary:hover {
-            background: #2563eb;
-            border-color: #2563eb;
-        }
-
-        .btn-secondary {
-            background: white;
-            color: #64748b;
-            border-color: #e2e8f0;
-        }
-
-        .btn-secondary:hover {
-            background: #f1f5f9;
-            color: #475569;
-        }
-
-        .btn i {
-            margin-left: 0.5rem;
-            font-size: 0.75rem;
-        }
-
-        .stats {
-            background: white;
-            border-radius: 12px;
-            padding: 2rem;
-            border: 1px solid #e2e8f0;
-            text-align: center;
-        }
-
-        .stats h2 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #1e293b;
-            margin-bottom: 1.5rem;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 2rem;
-        }
-
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #3b82f6;
-            margin-bottom: 0.25rem;
-        }
-
-        .stat-label {
-            color: #64748b;
-            font-size: 0.875rem;
-            font-weight: 500;
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 1rem;
-            }
-            
-            .header h1 {
-                font-size: 2rem;
-            }
-            
-            .websites-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .card-actions {
-                flex-direction: column;
-            }
-
-            .btn {
-                justify-content: center;
-            }
-        }
-    </style>
+    </script>
 </head>
-<body>
-    <div class="container">
-        <div class="header">
-            <h1>Swiss Painter & Construction Websites</h1>
-            <p>Professional websites with verified real data for Swiss painting and construction companies</p>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="bg-white shadow-sm border-b">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <i class="fas fa-paint-brush text-2xl text-blue-600 mr-3"></i>
+                        <h1 class="text-xl font-semibold text-gray-900">Maler Dashboard</h1>
+                    </div>
+                </div>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#overview" class="text-gray-900 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">Übersicht</a>
+                    <a href="#companies" class="text-gray-500 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">Betriebe</a>
+                    <a href="#analytics" class="text-gray-500 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">Analytik</a>
+                </nav>
+                <div class="flex items-center space-x-4">
+                    <button class="relative p-2 text-gray-400 hover:text-gray-500 hover:bg-gray-100 rounded-lg transition-colors">
+                        <i class="fas fa-bell text-lg"></i>
+                        <span class="absolute top-0 right-0 h-2 w-2 bg-red-500 rounded-full"></span>
+                    </button>
+                    <div class="h-8 w-8 bg-blue-600 rounded-full flex items-center justify-center">
+                        <i class="fas fa-user text-white text-sm"></i>
+                    </div>
+                </div>
+            </div>
         </div>
+    </header>
 
-        <div class="websites-grid">
-            <div class="website-card">
-                <div class="card-header">
-                    <div class="card-icon">
-                        <i class="fas fa-home"></i>
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Stats Overview -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <div class="bg-white rounded-lg shadow-sm border p-6">
+                <div class="flex items-center">
+                    <div class="p-2 bg-blue-100 rounded-lg">
+                        <i class="fas fa-building text-blue-600"></i>
                     </div>
-                    <div class="card-title">Malergeschäft Bernhard AG</div>
-                </div>
-                <div class="card-description">
-                    Vier Generationen Erfahrung im Malerhandwerk. Regional tätig in Zürich und Umgebung.
-                </div>
-                <div class="card-actions">
-                    <a href="/malerbernhard/" class="btn btn-primary">
-                        New Website <i class="fas fa-arrow-right"></i>
-                    </a>
-                    <a href="https://www.malerbernhard.ch/de/home" target="_blank" class="btn btn-secondary">
-                        Original <i class="fas fa-external-link-alt"></i>
-                    </a>
+                    <div class="ml-4">
+                        <p class="text-sm font-medium text-gray-600">Gesamt Betriebe</p>
+                        <p class="text-2xl font-bold text-gray-900">16</p>
+                    </div>
                 </div>
             </div>
-
-            <div class="website-card">
-                <div class="card-header">
-                    <div class="card-icon">
-                        <i class="fas fa-building"></i>
+            
+            <div class="bg-white rounded-lg shadow-sm border p-6">
+                <div class="flex items-center">
+                    <div class="p-2 bg-green-100 rounded-lg">
+                        <i class="fas fa-check-circle text-green-600"></i>
                     </div>
-                    <div class="card-title">Crncalo Maler Gipsergeschäft</div>
-                </div>
-                <div class="card-description">
-                    Maler-Experte zu fairen Preisen. Top-Qualität ohne versteckte Kosten.
-                </div>
-                <div class="card-actions">
-                    <a href="/crncalo/" class="btn btn-primary">
-                        New Website <i class="fas fa-arrow-right"></i>
-                    </a>
-                    <a href="https://www.maler-gipser-zuerich.com/" target="_blank" class="btn btn-secondary">
-                        Original <i class="fas fa-external-link-alt"></i>
-                    </a>
+                    <div class="ml-4">
+                        <p class="text-sm font-medium text-gray-600">Aktive Websites</p>
+                        <p class="text-2xl font-bold text-gray-900">16</p>
+                    </div>
                 </div>
             </div>
-
-            <div class="website-card">
-                <div class="card-header">
-                    <div class="card-icon">
-                        <i class="fas fa-palette"></i>
+            
+            <div class="bg-white rounded-lg shadow-sm border p-6">
+                <div class="flex items-center">
+                    <div class="p-2 bg-yellow-100 rounded-lg">
+                        <i class="fas fa-phone text-yellow-600"></i>
                     </div>
-                    <div class="card-title">Maler Deubelbeiss GmbH</div>
-                </div>
-                <div class="card-description">
-                    Miriam Deubelbeiss - für Farbe im Leben. Spezialisiert auf Wandtattoos und Innengestaltung.
-                </div>
-                <div class="card-actions">
-                    <a href="/deubelbeiss/" class="btn btn-primary">
-                        New Website <i class="fas fa-arrow-right"></i>
-                    </a>
-                    <a href="http://www.maler-deubelbeiss.ch/index.html" target="_blank" class="btn btn-secondary">
-                        Original <i class="fas fa-external-link-alt"></i>
-                    </a>
+                    <div class="ml-4">
+                        <p class="text-sm font-medium text-gray-600">Verifizierte Kontakte</p>
+                        <p class="text-2xl font-bold text-gray-900">12</p>
+                    </div>
                 </div>
             </div>
-
-            <div class="website-card">
-                <div class="card-header">
-                    <div class="card-icon">
-                        <i class="fas fa-trowel"></i>
+            
+            <div class="bg-white rounded-lg shadow-sm border p-6">
+                <div class="flex items-center">
+                    <div class="p-2 bg-purple-100 rounded-lg">
+                        <i class="fas fa-envelope text-purple-600"></i>
                     </div>
-                    <div class="card-title">ROMANG Struktur & Farbe GmbH</div>
-                </div>
-                <div class="card-description">
-                    Spezialisiert auf Bodenbeschichtungen und Trockeneis-Strahlen in Frutigen.
-                </div>
-                <div class="card-actions">
-                    <a href="/romang/" class="btn btn-primary">
-                        New Website <i class="fas fa-arrow-right"></i>
-                    </a>
-                    <a href="http://romang-gmbh.ch/Wilkommen/" target="_blank" class="btn btn-secondary">
-                        Original <i class="fas fa-external-link-alt"></i>
-                    </a>
-                </div>
-            </div>
-
-            <div class="website-card">
-                <div class="card-header">
-                    <div class="card-icon">
-                        <i class="fas fa-hammer"></i>
+                    <div class="ml-4">
+                        <p class="text-sm font-medium text-gray-600">E-Mail Adressen</p>
+                        <p class="text-2xl font-bold text-gray-900">14</p>
                     </div>
-                    <div class="card-title">Roberto Bonolo Baudienstleistungen</div>
-                </div>
-                <div class="card-description">
-                    Roberto Bonolo - Ihr Partner für Maler- und Gipserarbeiten seit 2018.
-                </div>
-                <div class="card-actions">
-                    <a href="/bonolo/" class="btn btn-primary">
-                        New Website <i class="fas fa-arrow-right"></i>
-                    </a>
-                    <a href="https://bonolo.ch/baudienstleistungen" target="_blank" class="btn btn-secondary">
-                        Original <i class="fas fa-external-link-alt"></i>
-                    </a>
-                </div>
-            </div>
-
-            <div class="website-card">
-                <div class="card-header">
-                    <div class="card-icon">
-                        <i class="fas fa-paint-brush"></i>
-                    </div>
-                    <div class="card-title">Maler Indergand</div>
-                </div>
-                <div class="card-description">
-                    Malermeister spezialisiert auf Tapezieren und Stucco Veneziano.
-                </div>
-                <div class="card-actions">
-                    <a href="/indergand/" class="btn btn-primary">
-                        New Website <i class="fas fa-arrow-right"></i>
-                    </a>
-                    <a href="https://www.maler-indergand.ch/" target="_blank" class="btn btn-secondary">
-                        Original <i class="fas fa-external-link-alt"></i>
-                    </a>
-                </div>
-            </div>
-
-            <div class="website-card">
-                <div class="card-header">
-                    <div class="card-icon">
-                        <i class="fas fa-leaf"></i>
-                    </div>
-                    <div class="card-title">Maler Noser</div>
-                </div>
-                <div class="card-description">
-                    Daniel Noser - Nachhaltigkeit wird GROSS geschrieben. 80% nachhaltige Produkte.
-                </div>
-                <div class="card-actions">
-                    <a href="/noser/" class="btn btn-primary">
-                        New Website <i class="fas fa-arrow-right"></i>
-                    </a>
-                    <a href="https://www.malernoser.ch/startseite" target="_blank" class="btn btn-secondary">
-                        Original <i class="fas fa-external-link-alt"></i>
-                    </a>
-                </div>
-            </div>
-
-            <div class="website-card">
-                <div class="card-header">
-                    <div class="card-icon">
-                        <i class="fas fa-magic"></i>
-                    </div>
-                    <div class="card-title">Decor Design GmbH</div>
-                </div>
-                <div class="card-description">
-                    Top Service zu fairen Preisen. Spezialisiert auf Gipsen in Naturoptik.
-                </div>
-                <div class="card-actions">
-                    <a href="/decordesign/" class="btn btn-primary">
-                        New Website <i class="fas fa-arrow-right"></i>
-                    </a>
-                    <a href="https://www.decordesigngmbh.ch/" target="_blank" class="btn btn-secondary">
-                        Original <i class="fas fa-external-link-alt"></i>
-                    </a>
-                </div>
-            </div>
-
-            <div class="website-card">
-                <div class="card-header">
-                    <div class="card-icon">
-                        <i class="fas fa-brush"></i>
-                    </div>
-                    <div class="card-title">MB Maler</div>
-                </div>
-                <div class="card-description">
-                    Professionelle Malerarbeiten mit persönlichem Service und höchster Qualität.
-                </div>
-                <div class="card-actions">
-                    <a href="/mbmaler/" class="btn btn-primary">
-                        New Website <i class="fas fa-arrow-right"></i>
-                    </a>
-                    <a href="https://www.mb-maler.ch/index.html" target="_blank" class="btn btn-secondary">
-                        Original <i class="fas fa-external-link-alt"></i>
-                    </a>
-                </div>
-            </div>
-
-            <div class="website-card">
-                <div class="card-header">
-                    <div class="card-icon">
-                        <i class="fas fa-user-tie"></i>
-                    </div>
-                    <div class="card-title">Nathalie Wyss</div>
-                </div>
-                <div class="card-description">
-                    Individuelle Malerarbeiten und kreative Raumgestaltung von Nathalie Wyss.
-                </div>
-                <div class="card-actions">
-                    <a href="/nwyss/" class="btn btn-primary">
-                        New Website <i class="fas fa-arrow-right"></i>
-                    </a>
-                    <a href="https://www.nathalie-wyss.ch/" target="_blank" class="btn btn-secondary">
-                        Original <i class="fas fa-external-link-alt"></i>
-                    </a>
-                </div>
-            </div>
-
-            <div class="website-card">
-                <div class="card-header">
-                    <div class="card-icon">
-                        <i class="fas fa-mountain"></i>
-                    </div>
-                    <div class="card-title">Malerbetrieb Steiner</div>
-                </div>
-                <div class="card-description">
-                    "Wie Steiner malt keiner" - Familienbetrieb mit langjähriger Tradition.
-                </div>
-                <div class="card-actions">
-                    <a href="/steiner/" class="btn btn-primary">
-                        New Website <i class="fas fa-arrow-right"></i>
-                    </a>
-                    <a href="https://www.malerbetrieb-steiner.ch/" target="_blank" class="btn btn-secondary">
-                        Original <i class="fas fa-external-link-alt"></i>
-                    </a>
-                </div>
-            </div>
-
-            <div class="website-card">
-                <div class="card-header">
-                    <div class="card-icon">
-                        <i class="fas fa-gem"></i>
-                    </div>
-                    <div class="card-title">Die Baudekoration GmbH</div>
-                </div>
-                <div class="card-description">
-                    Spezialist für dekorative Techniken und gehobene Raumgestaltung.
-                </div>
-                <div class="card-actions">
-                    <a href="/baudekoration/" class="btn btn-primary">
-                        New Website <i class="fas fa-arrow-right"></i>
-                    </a>
-                    <a href="https://www.die-baudekoration-gmbh.ch/" target="_blank" class="btn btn-secondary">
-                        Original <i class="fas fa-external-link-alt"></i>
-                    </a>
-                </div>
-            </div>
-
-            <div class="website-card">
-                <div class="card-header">
-                    <div class="card-icon">
-                        <i class="fas fa-mountain"></i>
-                    </div>
-                    <div class="card-title">Maler Beez AG</div>
-                </div>
-                <div class="card-description">
-                    Alpine Malerarbeiten in Arosa. Spezialisiert auf Gerüstbau und Spritzarbeiten.
-                </div>
-                <div class="card-actions">
-                    <a href="/beez/" class="btn btn-primary">
-                        New Website <i class="fas fa-arrow-right"></i>
-                    </a>
-                    <a href="http://www.maler-beez.ch/" target="_blank" class="btn btn-secondary">
-                        Original <i class="fas fa-external-link-alt"></i>
-                    </a>
-                </div>
-            </div>
-
-            <div class="website-card">
-                <div class="card-header">
-                    <div class="card-icon">
-                        <i class="fas fa-user-tie"></i>
-                    </div>
-                    <div class="card-title">Cantillo Maler GmbH</div>
-                </div>
-                <div class="card-description">
-                    Luigi Cantillo - Familienbetrieb seit 2018 in Frenkendorf.
-                </div>
-                <div class="card-actions">
-                    <a href="/cantillo/" class="btn btn-primary">
-                        New Website <i class="fas fa-arrow-right"></i>
-                    </a>
-                    <a href="https://cantillomaler.ch/index.html" target="_blank" class="btn btn-secondary">
-                        Original <i class="fas fa-external-link-alt"></i>
-                    </a>
-                </div>
-            </div>
-
-            <div class="website-card">
-                <div class="card-header">
-                    <div class="card-icon">
-                        <i class="fas fa-tools"></i>
-                    </div>
-                    <div class="card-title">Candotti Malergeschäft</div>
-                </div>
-                <div class="card-description">
-                    Traditionelles Malergeschäft mit Fokus auf Qualität und Handwerkskunst.
-                </div>
-                <div class="card-actions">
-                    <a href="/candotti/" class="btn btn-primary">
-                        New Website <i class="fas fa-arrow-right"></i>
-                    </a>
-                    <a href="https://www.candotti.ch/referenzen/" target="_blank" class="btn btn-secondary">
-                        Original <i class="fas fa-external-link-alt"></i>
-                    </a>
-                </div>
-            </div>
-
-            <div class="website-card">
-                <div class="card-header">
-                    <div class="card-icon">
-                        <i class="fas fa-building"></i>
-                    </div>
-                    <div class="card-title">Lorenz Bau GmbH</div>
-                </div>
-                <div class="card-description">
-                    Spezialist für Umbau und Renovationen in der Zentralschweiz. Trockenbau-Experte.
-                </div>
-                <div class="card-actions">
-                    <a href="/lorenzbau/" class="btn btn-primary">
-                        New Website <i class="fas fa-arrow-right"></i>
-                    </a>
-                    <a href="https://www.lorenzbau.ch/" target="_blank" class="btn btn-secondary">
-                        Original <i class="fas fa-external-link-alt"></i>
-                    </a>
                 </div>
             </div>
         </div>
 
-        <div class="stats">
-            <h2>Project Statistics</h2>
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <div class="stat-number">16</div>
-                    <div class="stat-label">Websites</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">100%</div>
-                    <div class="stat-label">Mobile Responsive</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">9</div>
-                    <div class="stat-label">Verified Phone Numbers</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">11</div>
-                    <div class="stat-label">Verified Emails</div>
+        <!-- Company Grid -->
+        <div class="bg-white rounded-lg shadow-sm border">
+            <div class="px-6 py-4 border-b">
+                <div class="flex items-center justify-between">
+                    <h2 class="text-lg font-semibold text-gray-900">Maler Betriebe</h2>
+                    <div class="flex items-center space-x-4">
+                        <div class="relative">
+                            <input type="text" placeholder="Suchen..." class="pl-10 pr-4 py-2 border rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                            <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                        </div>
+                        <select class="border rounded-md px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                            <option>Alle Regionen</option>
+                            <option>Zürich</option>
+                            <option>Bern</option>
+                            <option>Basel</option>
+                        </select>
+                    </div>
                 </div>
             </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 p-6" id="companies-grid">
+                <!-- Company cards will be dynamically generated -->
+            </div>
         </div>
-    </div>
+    </main>
+
+    <script>
+        const companies = [
+            {
+                name: "Malergeschäft Bernhard AG",
+                location: "Zürich",
+                phone: "044 833 22 51",
+                email: "info@malerbernhard.ch",
+                status: "verified",
+                specialties: ["Innenmalerei", "Fassadenmalerei"],
+                folder: "Malergeschäft Bernhard AG",
+                icon: "fas fa-home",
+                color: "bg-blue-600"
+            },
+            {
+                name: "Crncalo Maler Gipsergeschäft",
+                location: "Zürich",
+                phone: "078 637 99 66",
+                email: "crncalo@maler-gipser-zuerich.com",
+                status: "verified",
+                specialties: ["Gipserarbeiten", "Malerarbeiten"],
+                folder: "Crncalo Maler Gipsergeschäft",
+                icon: "fas fa-building",
+                color: "bg-purple-600"
+            },
+            {
+                name: "Maler Deubelbeiss GmbH",
+                location: "Winterthur",
+                phone: "079 318 01 80",
+                email: "info@maler-deubelbeiss.ch",
+                status: "verified",
+                specialties: ["Renovierung", "Fassadenmalerei"],
+                folder: "Maler Deubelbeiss GmbH",
+                icon: "fas fa-palette",
+                color: "bg-pink-600"
+            },
+            {
+                name: "ROMANG Struktur & Farbe GmbH",
+                location: "Frutigen",
+                phone: "079 293 69 27",
+                email: "info@romang-gmbh.ch",
+                status: "verified",
+                specialties: ["Strukturbeschichtung", "Trockeneis-Strahlen"],
+                folder: "ROMANG Struktur & Farbe GmbH",
+                icon: "fas fa-layer-group",
+                color: "bg-green-600"
+            },
+            {
+                name: "Roberto Bonolo Baudienstleistungen",
+                location: "Basel",
+                phone: "+41 79 357 46 56",
+                email: "rb@bonolo.ch",
+                status: "verified",
+                specialties: ["Baudienstleistungen", "Renovation"],
+                folder: "Roberto Bonolo Baudienstleistungen",
+                icon: "fas fa-hammer",
+                color: "bg-orange-600"
+            },
+            {
+                name: "Maler Indergand",
+                location: "Luzern",
+                phone: "079 669 74 89",
+                email: "info@maler-indergand.ch",
+                status: "verified",
+                specialties: ["Malerarbeiten", "Tapezieren"],
+                folder: "Maler Indergand",
+                icon: "fas fa-paint-brush",
+                color: "bg-indigo-600"
+            },
+            {
+                name: "Maler Noser",
+                location: "Baden",
+                phone: "078 404 54 45",
+                email: "info@malernoser.ch",
+                status: "verified",
+                specialties: ["Nachhaltige Produkte", "Innenmalerei"],
+                folder: "Maler Noser",
+                icon: "fas fa-leaf",
+                color: "bg-emerald-600"
+            },
+            {
+                name: "Decor Design GmbH",
+                location: "Basel",
+                phone: "Nicht verfügbar",
+                email: "info@decordesigngmbh.ch",
+                status: "partial",
+                specialties: ["Dekoration", "Design"],
+                folder: "Decor Design GmbH",
+                icon: "fas fa-magic",
+                color: "bg-violet-600"
+            },
+            {
+                name: "MB Maler",
+                location: "Zürich",
+                phone: "076 456 66 87",
+                email: "info@mb-maler.ch",
+                status: "verified",
+                specialties: ["Malerarbeiten", "Renovation"],
+                folder: "MB Maler",
+                icon: "fas fa-brush",
+                color: "bg-cyan-600"
+            },
+            {
+                name: "Nathalie Wyss",
+                location: "Bern",
+                phone: "+41 76 681 89 61",
+                email: "info@nathalie-wyss.ch",
+                status: "verified",
+                specialties: ["Künstlerische Gestaltung", "Wandmalerei"],
+                folder: "Nathalie Wyss",
+                icon: "fas fa-user-tie",
+                color: "bg-rose-600"
+            },
+            {
+                name: "Malerbetrieb Steiner",
+                location: "Meinisberg",
+                phone: "079 266 76 45",
+                email: "maler-steiner@gmx.ch",
+                status: "verified",
+                specialties: ["Familienbetrieb", "Traditionsmalerei"],
+                folder: "Malerbetrieb Steiner",
+                icon: "fas fa-mountain",
+                color: "bg-amber-600"
+            },
+            {
+                name: "Die Baudekoration GmbH",
+                location: "Zielebach",
+                phone: "032 675 7446",
+                email: "info@die-baudekoration-gmbh.ch",
+                status: "verified",
+                specialties: ["Baudekoration", "Spezialmalerei"],
+                folder: "Die Baudekoration GmbH",
+                icon: "fas fa-gem",
+                color: "bg-purple-600"
+            },
+            {
+                name: "Maler Beez AG",
+                location: "Arosa",
+                phone: "+41 81 356 54 45",
+                email: "mail@maler-beez.ch",
+                status: "verified",
+                specialties: ["Alpine Malerei", "Gerüstbau"],
+                folder: "Maler Beez AG",
+                icon: "fas fa-mountain",
+                color: "bg-slate-600"
+            },
+            {
+                name: "Cantillo Maler GmbH",
+                location: "Frenkendorf",
+                phone: "+41 79 709 01 05",
+                email: "Nicht verfügbar",
+                status: "partial",
+                specialties: ["Malerarbeiten", "Sanierung"],
+                folder: "Cantillo Maler GmbH",
+                icon: "fas fa-user-tie",
+                color: "bg-orange-600"
+            },
+            {
+                name: "Candotti Malergeschäft",
+                location: "Wittenbach",
+                phone: "Nicht verfügbar",
+                email: "u.candotti@dolphins.ch",
+                status: "partial",
+                specialties: ["Malergeschäft", "Renovation"],
+                folder: "Candotti Malergeschäft",
+                icon: "fas fa-tools",
+                color: "bg-teal-600"
+            },
+            {
+                name: "Lorenz Bau GmbH",
+                location: "Baar",
+                phone: "+41 78 716 31 22",
+                email: "info@lorenzbau.ch",
+                status: "verified",
+                specialties: ["Bauarbeiten", "Projektmanagement"],
+                folder: "Lorenz Bau GmbH",
+                icon: "fas fa-building",
+                color: "bg-gray-600"
+            }
+        ];
+
+        function createCompanyCard(company) {
+            const statusColor = company.status === 'verified' ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800';
+            const statusIcon = company.status === 'verified' ? 'fa-check-circle' : 'fa-exclamation-triangle';
+            
+            return `
+                <div class="border rounded-lg p-4 hover:shadow-md transition-shadow bg-white">
+                    <div class="flex items-start justify-between mb-3">
+                        <div class="flex items-start space-x-3 flex-1">
+                            <div class="w-10 h-10 ${company.color} rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="${company.icon} text-white"></i>
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <h3 class="font-semibold text-gray-900 text-sm mb-1 truncate">${company.name}</h3>
+                                <p class="text-xs text-gray-500 mb-2">
+                                    <i class="fas fa-map-marker-alt mr-1"></i>${company.location}
+                                </p>
+                            </div>
+                        </div>
+                        <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${statusColor} flex-shrink-0">
+                            <i class="fas ${statusIcon} mr-1"></i>
+                            ${company.status === 'verified' ? 'Verifiziert' : 'Teilweise'}
+                        </span>
+                    </div>
+                    
+                    <div class="space-y-1 text-xs text-gray-600 mb-3">
+                        <div class="flex items-center">
+                            <i class="fas fa-phone w-4 mr-2"></i>
+                            <span>${company.phone}</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope w-4 mr-2"></i>
+                            <span class="truncate">${company.email}</span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-1 mb-3">
+                        ${company.specialties.map(specialty => 
+                            `<span class="inline-block px-2 py-1 text-xs bg-blue-100 text-blue-800 rounded">${specialty}</span>`
+                        ).join('')}
+                    </div>
+                    
+                    <div class="flex space-x-2">
+                        <button onclick="openWebsite('${company.folder}')" 
+                                class="flex-1 bg-blue-600 hover:bg-blue-700 text-white text-xs px-3 py-2 rounded transition-colors">
+                            <i class="fas fa-external-link-alt mr-1"></i>
+                            Website
+                        </button>
+                        <button onclick="editCompany('${company.name}')" 
+                                class="px-3 py-2 border border-gray-300 hover:bg-gray-50 text-gray-700 text-xs rounded transition-colors">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderCompanies() {
+            const grid = document.getElementById('companies-grid');
+            grid.innerHTML = companies.map(createCompanyCard).join('');
+        }
+
+        function openWebsite(folder) {
+            window.open(`${folder}/index.html`, '_blank');
+        }
+
+        function editCompany(name) {
+            alert(`Bearbeitung für ${name} wird geöffnet...`);
+        }
+
+        // Initialize
+        renderCompanies();
+
+        // Search functionality
+        document.querySelector('input[placeholder="Suchen..."]').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const filteredCompanies = companies.filter(company => 
+                company.name.toLowerCase().includes(searchTerm) ||
+                company.location.toLowerCase().includes(searchTerm) ||
+                company.specialties.some(specialty => specialty.toLowerCase().includes(searchTerm))
+            );
+            
+            const grid = document.getElementById('companies-grid');
+            grid.innerHTML = filteredCompanies.map(createCompanyCard).join('');
+        });
+    </script>
 </body>
 </html> 
