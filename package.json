@@ -1,0 +1,14 @@
+{
+  "name": "swiss-painter-websites",
+  "version": "1.0.0",
+  "description": "16 Swiss painter and construction company websites",
+  "main": "index.js",
+  "scripts": {
+    "dev": "python3 -m http.server 3000",
+    "build": "echo 'Build complete'",
+    "start": "python3 -m http.server 3000"
+  },
+  "keywords": ["websites", "swiss", "painters", "construction"],
+  "author": "Your Name",
+  "license": "MIT"
+} 

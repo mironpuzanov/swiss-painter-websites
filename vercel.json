@@ -1,0 +1,87 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "**/*.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "**/*.css",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "**/*.js",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/malerbernhard/(.*)",
+      "dest": "/Malergeschäft Bernhard AG/$1"
+    },
+    {
+      "src": "/crncalo/(.*)",
+      "dest": "/Crncalo Maler Gipsergeschäft/$1"
+    },
+    {
+      "src": "/deubelbeiss/(.*)",
+      "dest": "/Maler Deubelbeiss GmbH/$1"
+    },
+    {
+      "src": "/romang/(.*)",
+      "dest": "/ROMANG Struktur & Farbe GmbH/$1"
+    },
+    {
+      "src": "/bonolo/(.*)",
+      "dest": "/Roberto Bonolo Baudienstleistungen/$1"
+    },
+    {
+      "src": "/indergand/(.*)",
+      "dest": "/Maler Indergand/$1"
+    },
+    {
+      "src": "/noser/(.*)",
+      "dest": "/Maler Noser/$1"
+    },
+    {
+      "src": "/decordesign/(.*)",
+      "dest": "/Decor Design GmbH/$1"
+    },
+    {
+      "src": "/mbmaler/(.*)",
+      "dest": "/MB Maler/$1"
+    },
+    {
+      "src": "/nwyss/(.*)",
+      "dest": "/Nathalie Wyss/$1"
+    },
+    {
+      "src": "/steiner/(.*)",
+      "dest": "/Malerbetrieb Steiner/$1"
+    },
+    {
+      "src": "/baudekoration/(.*)",
+      "dest": "/Die Baudekoration GmbH/$1"
+    },
+    {
+      "src": "/beez/(.*)",
+      "dest": "/Maler Beez AG/$1"
+    },
+    {
+      "src": "/cantillo/(.*)",
+      "dest": "/Cantillo Maler GmbH/$1"
+    },
+    {
+      "src": "/candotti/(.*)",
+      "dest": "/Candotti Malergeschäft/$1"
+    },
+    {
+      "src": "/lorenzbau/(.*)",
+      "dest": "/Lorenz Bau GmbH/$1"
+    },
+    {
+      "src": "/",
+      "dest": "/index.html"
+    }
+  ]
+} 

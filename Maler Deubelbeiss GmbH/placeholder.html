@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zugriff gesperrt - Maler Deubelbeiss GmbH</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', 'Arial', sans-serif;
+            background: linear-gradient(135deg, #2d1b69 0%, #7c3aed 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            overflow: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(168, 85, 247, 0.1) 0%, transparent 50%);
+            transform: rotate(45deg);
+            animation: float 8s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: rotate(45deg) translateY(0px); }
+            50% { transform: rotate(45deg) translateY(-30px); }
+        }
+
+        .lock-container {
+            text-align: center;
+            max-width: 500px;
+            padding: 60px 40px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(216, 180, 254, 0.3);
+            border-radius: 30px;
+            box-shadow: 0 20px 40px rgba(124, 58, 237, 0.3);
+            position: relative;
+            z-index: 2;
+        }
+
+        .lock-icon {
+            font-size: 80px;
+            color: #c084fc;
+            margin-bottom: 30px;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            0% { text-shadow: 0 0 20px rgba(192, 132, 252, 0.5); }
+            100% { text-shadow: 0 0 40px rgba(192, 132, 252, 0.8), 0 0 60px rgba(124, 58, 237, 0.3); }
+        }
+
+        .lock-container h1 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            font-weight: 900;
+        }
+
+        .lock-container p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            color: #e9d5ff;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 18px 35px;
+            background: linear-gradient(135deg, #7c3aed, #a855f7);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(124, 58, 237, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .back-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.3), transparent);
+            transition: all 0.3s ease;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .back-btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .back-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(124, 58, 237, 0.5);
+        }
+
+        .company-name {
+            position: absolute;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 20px;
+            font-weight: 900;
+            color: #c084fc;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            font-style: italic;
+        }
+
+        .company-name::after {
+            content: '✨';
+            margin-left: 10px;
+            font-size: 16px;
+        }
+
+        @media (max-width: 768px) {
+            .lock-container {
+                margin: 20px;
+                padding: 40px 30px;
+                border-radius: 20px;
+            }
+
+            .lock-container h1 {
+                font-size: 24px;
+            }
+
+            .lock-container p {
+                font-size: 16px;
+            }
+
+            .company-name {
+                font-size: 16px;
+                top: 20px;
+            }
+
+            .back-btn {
+                padding: 15px 25px;
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="company-name">Maler Deubelbeiss GmbH</div>
+    
+    <div class="lock-container">
+        <i class="fas fa-lock lock-icon"></i>
+        
+        <h1>Zugriff gesperrt</h1>
+        
+        <p>Diese Seite ist gesperrt und steht erst nach dem Kauf der vollständigen Website zur Verfügung.</p>
+        
+        <a href="index.html" class="back-btn">
+            <i class="fas fa-arrow-left"></i>
+            <span>Zurück zur Startseite</span>
+        </a>
+    </div>
+</body>
+</html> 
