@@ -6,75 +6,17 @@
     <title>Maler Dashboard - Übersicht aller Betriebe</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        border: "hsl(214.3 31.8% 91.4%)",
-                        input: "hsl(214.3 31.8% 91.4%)",
-                        ring: "hsl(222.2 84% 4.9%)",
-                        background: "hsl(0 0% 100%)",
-                        foreground: "hsl(222.2 84% 4.9%)",
-                        primary: {
-                            DEFAULT: "hsl(222.2 47.4% 11.2%)",
-                            foreground: "hsl(210 40% 98%)",
-                        },
-                        secondary: {
-                            DEFAULT: "hsl(210 40% 96%)",
-                            foreground: "hsl(222.2 84% 4.9%)",
-                        },
-                        muted: {
-                            DEFAULT: "hsl(210 40% 96%)",
-                            foreground: "hsl(215.4 16.3% 46.9%)",
-                        },
-                        accent: {
-                            DEFAULT: "hsl(210 40% 96%)",
-                            foreground: "hsl(222.2 84% 4.9%)",
-                        },
-                        card: {
-                            DEFAULT: "hsl(0 0% 100%)",
-                            foreground: "hsl(222.2 84% 4.9%)",
-                        },
-                    },
-                },
-            },
-        }
-    </script>
 </head>
-<body class="bg-gray-50 min-h-screen">
-    <!-- Header -->
-    <header class="bg-white shadow-sm border-b">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <div class="flex items-center">
-                    <div class="flex-shrink-0 flex items-center">
-                        <i class="fas fa-paint-brush text-2xl text-blue-600 mr-3"></i>
-                        <h1 class="text-xl font-semibold text-gray-900">Maler Dashboard</h1>
-                    </div>
-                </div>
-                <nav class="hidden md:flex space-x-8">
-                    <a href="#overview" class="text-gray-900 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">Übersicht</a>
-                    <a href="#companies" class="text-gray-500 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">Betriebe</a>
-                    <a href="#analytics" class="text-gray-500 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">Analytik</a>
-                </nav>
-                <div class="flex items-center space-x-4">
-                    <button class="relative p-2 text-gray-400 hover:text-gray-500 hover:bg-gray-100 rounded-lg transition-colors">
-                        <i class="fas fa-bell text-lg"></i>
-                        <span class="absolute top-0 right-0 h-2 w-2 bg-red-500 rounded-full"></span>
-                    </button>
-                    <div class="h-8 w-8 bg-blue-600 rounded-full flex items-center justify-center">
-                        <i class="fas fa-user text-white text-sm"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-
+<body class="bg-gray-50 min-h-screen p-8">
     <!-- Main Content -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <main class="max-w-7xl mx-auto">
+        <div class="mb-8">
+            <h1 class="text-3xl font-bold text-gray-900 mb-2">Maler Betriebe</h1>
+            <p class="text-gray-600">Übersicht aller 16 Schweizer Maler- und Baubetriebe</p>
+        </div>
+
         <!-- Stats Overview -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
             <div class="bg-white rounded-lg shadow-sm border p-6">
                 <div class="flex items-center">
                     <div class="p-2 bg-blue-100 rounded-lg">
@@ -128,23 +70,17 @@
         <div class="bg-white rounded-lg shadow-sm border">
             <div class="px-6 py-4 border-b">
                 <div class="flex items-center justify-between">
-                    <h2 class="text-lg font-semibold text-gray-900">Maler Betriebe</h2>
+                    <h2 class="text-lg font-semibold text-gray-900">Alle Betriebe</h2>
                     <div class="flex items-center space-x-4">
                         <div class="relative">
                             <input type="text" placeholder="Suchen..." class="pl-10 pr-4 py-2 border rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent">
                             <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
                         </div>
-                        <select class="border rounded-md px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-                            <option>Alle Regionen</option>
-                            <option>Zürich</option>
-                            <option>Bern</option>
-                            <option>Basel</option>
-                        </select>
                     </div>
                 </div>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 p-6" id="companies-grid">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6" id="companies-grid">
                 <!-- Company cards will be dynamically generated -->
             </div>
         </div>
@@ -335,52 +271,46 @@
             const statusIcon = company.status === 'verified' ? 'fa-check-circle' : 'fa-exclamation-triangle';
             
             return `
-                <div class="border rounded-lg p-4 hover:shadow-md transition-shadow bg-white">
-                    <div class="flex items-start justify-between mb-3">
-                        <div class="flex items-start space-x-3 flex-1">
-                            <div class="w-10 h-10 ${company.color} rounded-lg flex items-center justify-center flex-shrink-0">
-                                <i class="${company.icon} text-white"></i>
-                            </div>
-                            <div class="flex-1 min-w-0">
-                                <h3 class="font-semibold text-gray-900 text-sm mb-1 truncate">${company.name}</h3>
-                                <p class="text-xs text-gray-500 mb-2">
-                                    <i class="fas fa-map-marker-alt mr-1"></i>${company.location}
-                                </p>
-                            </div>
+                <div class="border rounded-lg p-6 hover:shadow-md transition-shadow bg-white">
+                    <div class="flex items-start space-x-4 mb-4">
+                        <div class="w-12 h-12 ${company.color} rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="${company.icon} text-white text-lg"></i>
                         </div>
-                        <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${statusColor} flex-shrink-0">
-                            <i class="fas ${statusIcon} mr-1"></i>
-                            ${company.status === 'verified' ? 'Verifiziert' : 'Teilweise'}
-                        </span>
+                        <div class="flex-1 min-w-0">
+                            <h3 class="font-semibold text-gray-900 text-lg mb-1">${company.name}</h3>
+                            <p class="text-sm text-gray-500 mb-2">
+                                <i class="fas fa-map-marker-alt mr-1"></i>${company.location}
+                            </p>
+                            <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${statusColor}">
+                                <i class="fas ${statusIcon} mr-1"></i>
+                                ${company.status === 'verified' ? 'Verifiziert' : 'Teilweise'}
+                            </span>
+                        </div>
                     </div>
                     
-                    <div class="space-y-1 text-xs text-gray-600 mb-3">
+                    <div class="space-y-2 text-sm text-gray-600 mb-4">
                         <div class="flex items-center">
-                            <i class="fas fa-phone w-4 mr-2"></i>
+                            <i class="fas fa-phone w-5 mr-3 text-gray-400"></i>
                             <span>${company.phone}</span>
                         </div>
                         <div class="flex items-center">
-                            <i class="fas fa-envelope w-4 mr-2"></i>
-                            <span class="truncate">${company.email}</span>
+                            <i class="fas fa-envelope w-5 mr-3 text-gray-400"></i>
+                            <span class="break-all">${company.email}</span>
                         </div>
                     </div>
                     
-                    <div class="flex flex-wrap gap-1 mb-3">
+                    <div class="flex flex-wrap gap-2 mb-6">
                         ${company.specialties.map(specialty => 
                             `<span class="inline-block px-2 py-1 text-xs bg-blue-100 text-blue-800 rounded">${specialty}</span>`
                         ).join('')}
                     </div>
                     
-                    <div class="flex space-x-2">
-                        <button onclick="openWebsite('${company.folder}')" 
-                                class="flex-1 bg-blue-600 hover:bg-blue-700 text-white text-xs px-3 py-2 rounded transition-colors">
-                            <i class="fas fa-external-link-alt mr-1"></i>
-                            Website
-                        </button>
-                        <button onclick="editCompany('${company.name}')" 
-                                class="px-3 py-2 border border-gray-300 hover:bg-gray-50 text-gray-700 text-xs rounded transition-colors">
-                            <i class="fas fa-edit"></i>
-                        </button>
+                    <div class="space-y-2">
+                        <a href="${company.folder}/index.html" target="_blank" 
+                           class="w-full bg-blue-600 hover:bg-blue-700 text-white text-sm px-4 py-3 rounded transition-colors flex items-center justify-center">
+                            <i class="fas fa-external-link-alt mr-2"></i>
+                            Website besuchen
+                        </a>
                     </div>
                 </div>
             `;
@@ -389,14 +319,6 @@
         function renderCompanies() {
             const grid = document.getElementById('companies-grid');
             grid.innerHTML = companies.map(createCompanyCard).join('');
-        }
-
-        function openWebsite(folder) {
-            window.open(`${folder}/index.html`, '_blank');
-        }
-
-        function editCompany(name) {
-            alert(`Bearbeitung für ${name} wird geöffnet...`);
         }
 
         // Initialize
