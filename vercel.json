@@ -17,131 +17,131 @@
   "routes": [
     {
       "src": "/malerbernhard$",
-      "dest": "/Malergeschäft Bernhard AG/index.html"
+      "dest": "/Malergesch%C3%A4ft%20Bernhard%20AG/index.html"
     },
     {
       "src": "/malerbernhard/(.*)",
-      "dest": "/Malergeschäft Bernhard AG/$1"
+      "dest": "/Malergesch%C3%A4ft%20Bernhard%20AG/$1"
     },
     {
       "src": "/crncalo$",
-      "dest": "/Crncalo Maler Gipsergeschäft/index.html"
+      "dest": "/Crncalo%20Maler%20Gipsergesch%C3%A4ft/index.html"
     },
     {
       "src": "/crncalo/(.*)",
-      "dest": "/Crncalo Maler Gipsergeschäft/$1"
+      "dest": "/Crncalo%20Maler%20Gipsergesch%C3%A4ft/$1"
     },
     {
       "src": "/deubelbeiss$",
-      "dest": "/Maler Deubelbeiss GmbH/index.html"
+      "dest": "/Maler%20Deubelbeiss%20GmbH/index.html"
     },
     {
       "src": "/deubelbeiss/(.*)",
-      "dest": "/Maler Deubelbeiss GmbH/$1"
+      "dest": "/Maler%20Deubelbeiss%20GmbH/$1"
     },
     {
       "src": "/romang$",
-      "dest": "/ROMANG Struktur & Farbe GmbH/index.html"
+      "dest": "/ROMANG%20Struktur%20%26%20Farbe%20GmbH/index.html"
     },
     {
       "src": "/romang/(.*)",
-      "dest": "/ROMANG Struktur & Farbe GmbH/$1"
+      "dest": "/ROMANG%20Struktur%20%26%20Farbe%20GmbH/$1"
     },
     {
       "src": "/bonolo$",
-      "dest": "/Roberto Bonolo Baudienstleistungen/index.html"
+      "dest": "/Roberto%20Bonolo%20Baudienstleistungen/index.html"
     },
     {
       "src": "/bonolo/(.*)",
-      "dest": "/Roberto Bonolo Baudienstleistungen/$1"
+      "dest": "/Roberto%20Bonolo%20Baudienstleistungen/$1"
     },
     {
       "src": "/indergand$",
-      "dest": "/Maler Indergand/index.html"
+      "dest": "/Maler%20Indergand/index.html"
     },
     {
       "src": "/indergand/(.*)",
-      "dest": "/Maler Indergand/$1"
+      "dest": "/Maler%20Indergand/$1"
     },
     {
       "src": "/noser$",
-      "dest": "/Maler Noser/index.html"
+      "dest": "/Maler%20Noser/index.html"
     },
     {
       "src": "/noser/(.*)",
-      "dest": "/Maler Noser/$1"
+      "dest": "/Maler%20Noser/$1"
     },
     {
       "src": "/decordesign$",
-      "dest": "/Decor Design GmbH/index.html"
+      "dest": "/Decor%20Design%20GmbH/index.html"
     },
     {
       "src": "/decordesign/(.*)",
-      "dest": "/Decor Design GmbH/$1"
+      "dest": "/Decor%20Design%20GmbH/$1"
     },
     {
       "src": "/mbmaler$",
-      "dest": "/MB Maler/index.html"
+      "dest": "/MB%20Maler/index.html"
     },
     {
       "src": "/mbmaler/(.*)",
-      "dest": "/MB Maler/$1"
+      "dest": "/MB%20Maler/$1"
     },
     {
       "src": "/nwyss$",
-      "dest": "/Nathalie Wyss/index.html"
+      "dest": "/Nathalie%20Wyss/index.html"
     },
     {
       "src": "/nwyss/(.*)",
-      "dest": "/Nathalie Wyss/$1"
+      "dest": "/Nathalie%20Wyss/$1"
     },
     {
       "src": "/steiner$",
-      "dest": "/Malerbetrieb Steiner/index.html"
+      "dest": "/Malerbetrieb%20Steiner/index.html"
     },
     {
       "src": "/steiner/(.*)",
-      "dest": "/Malerbetrieb Steiner/$1"
+      "dest": "/Malerbetrieb%20Steiner/$1"
     },
     {
       "src": "/baudekoration$",
-      "dest": "/Die Baudekoration GmbH/index.html"
+      "dest": "/Die%20Baudekoration%20GmbH/index.html"
     },
     {
       "src": "/baudekoration/(.*)",
-      "dest": "/Die Baudekoration GmbH/$1"
+      "dest": "/Die%20Baudekoration%20GmbH/$1"
     },
     {
       "src": "/beez$",
-      "dest": "/Maler Beez AG/index.html"
+      "dest": "/Maler%20Beez%20AG/index.html"
     },
     {
       "src": "/beez/(.*)",
-      "dest": "/Maler Beez AG/$1"
+      "dest": "/Maler%20Beez%20AG/$1"
     },
     {
       "src": "/cantillo$",
-      "dest": "/Cantillo Maler GmbH/index.html"
+      "dest": "/Cantillo%20Maler%20GmbH/index.html"
     },
     {
       "src": "/cantillo/(.*)",
-      "dest": "/Cantillo Maler GmbH/$1"
+      "dest": "/Cantillo%20Maler%20GmbH/$1"
     },
     {
       "src": "/candotti$",
-      "dest": "/Candotti Malergeschäft/index.html"
+      "dest": "/Candotti%20Malergesch%C3%A4ft/index.html"
     },
     {
       "src": "/candotti/(.*)",
-      "dest": "/Candotti Malergeschäft/$1"
+      "dest": "/Candotti%20Malergesch%C3%A4ft/$1"
     },
     {
       "src": "/lorenzbau$",
-      "dest": "/Lorenz Bau GmbH/index.html"
+      "dest": "/Lorenz%20Bau%20GmbH/index.html"
     },
     {
       "src": "/lorenzbau/(.*)",
-      "dest": "/Lorenz Bau GmbH/$1"
+      "dest": "/Lorenz%20Bau%20GmbH/$1"
     },
     {
       "src": "/(.*\\.(css|js|ico|png|jpg|jpeg|gif|svg))$",
