@@ -144,6 +144,10 @@
       "dest": "/Lorenz Bau GmbH/$1"
     },
     {
+      "src": "/(.*\\.(css|js|ico|png|jpg|jpeg|gif|svg))$",
+      "dest": "/$1"
+    },
+    {
       "src": "/",
       "dest": "/index.html"
     }
