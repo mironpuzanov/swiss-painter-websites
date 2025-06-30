@@ -15,7 +15,22 @@
     }
   ],
   "routes": [
-
+    {
+      "src": "/crncalo$",
+      "dest": "/Crncalo%20Maler%20Gipsergesch%C3%A4ft/index.html"
+    },
+    {
+      "src": "/crncalo/(.*)",
+      "dest": "/Crncalo%20Maler%20Gipsergesch%C3%A4ft/$1"
+    },
+    {
+      "src": "/bernhard$",
+      "dest": "/Malergesch%C3%A4ft%20Bernhard%20AG/index.html"
+    },
+    {
+      "src": "/bernhard/(.*)",
+      "dest": "/Malergesch%C3%A4ft%20Bernhard%20AG/$1"
+    },
     {
       "src": "/deubelbeiss$",
       "dest": "/Maler%20Deubelbeiss%20GmbH/index.html"

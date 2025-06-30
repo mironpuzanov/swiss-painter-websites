@@ -1,4 +1,35 @@
-/* Modern Minimalistic Design - Sophisticated Charcoal Theme */
+/* Modern Minimalistic Design - Enhanced Sophisticated Charcoal Theme */
+
+/* Enhanced Color System */
+:root {
+    /* Primary Sophisticated Charcoal Scale */
+    --color-primary-50: #f8fafc;
+    --color-primary-600: #475569;    /* Warmer charcoal */
+    --color-primary-700: #374151;    /* Current as darker variant */
+    --color-primary-800: #1f2937;
+    --color-primary-900: #0f172a;    /* Deep navy for text */
+    
+    /* Secondary Sky Blue Scale */
+    --color-secondary-500: #0ea5e9;  /* Sky blue for trust */
+    --color-secondary-600: #0284c7;
+    --color-secondary-700: #0369a1;
+    
+    /* Accent Golden Scale */
+    --color-accent-400: #fbbf24;     /* Golden accent for warmth */
+    --color-accent-500: #f59e0b;
+    --color-accent-600: #d97706;
+    
+    /* Enhanced Neutrals */
+    --color-neutral-50: #f8fafc;     /* Cool white background */
+    --color-neutral-100: #f1f5f9;
+    --color-neutral-200: #e2e8f0;
+    --color-neutral-300: #cbd5e1;
+    --color-neutral-500: #64748b;
+    --color-neutral-700: #374151;
+    --color-neutral-800: #1f2937;
+    --color-neutral-900: #0f172a;    /* Deep navy for text */
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -8,7 +39,7 @@
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     line-height: 1.6;
-    color: #1f2937;
+    color: var(--color-neutral-900);
     background: #ffffff;
     overflow-x: hidden;
 }
@@ -47,7 +78,7 @@ body {
 }
 
 .nav-brand i {
-    color: #374151;
+    color: var(--color-primary-600);
     font-size: 24px;
 }
 
@@ -90,7 +121,7 @@ body {
 }
 
 .nav-menu a:hover {
-    color: #374151;
+    color: var(--color-primary-600);
 }
 
 .nav-menu a:hover::after {
@@ -100,7 +131,7 @@ body {
     left: 0;
     right: 0;
     height: 2px;
-    background: #374151;
+    background: var(--color-primary-600);
     border-radius: 1px;
 }
 
@@ -122,7 +153,7 @@ body {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(135deg, #374151 0%, #1f2937 100%);
+    background: linear-gradient(135deg, var(--color-primary-600) 0%, var(--color-secondary-500) 100%);
     color: white;
     padding: 160px 0 120px;
     min-height: 100vh;
@@ -181,7 +212,7 @@ body {
     align-items: center;
     gap: 8px;
     background: #ffffff;
-    color: #374151;
+    color: var(--color-primary-600);
     padding: 16px 32px;
     border-radius: 12px;
     text-decoration: none;
@@ -685,4 +716,211 @@ body {
 /* Smooth Scrolling */
 html {
     scroll-behavior: smooth;
+}
+
+/* Team Section */
+.team {
+    padding: 120px 0;
+    background: #ffffff;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+    margin-top: 80px;
+}
+
+.team-card {
+    background: white;
+    border-radius: 20px;
+    padding: 40px 32px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid #f3f4f6;
+    transition: all 0.3s ease;
+}
+
+.team-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+    border-color: #374151;
+}
+
+.team-image {
+    width: 120px;
+    height: 150px;
+    background: #f9fafb;
+    border-radius: 12px;
+    margin: 0 auto 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed #d1d5db;
+    position: relative;
+}
+
+.team-image i {
+    color: #9ca3af;
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+.placeholder-text {
+    color: #6b7280;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.team-info h3 {
+    color: #1f2937;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.team-info h4 {
+    color: #374151;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.team-info p {
+    color: #6b7280;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* Reviews Section */
+.reviews {
+    padding: 120px 0;
+    background: #f9fafb;
+}
+
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 32px;
+    margin-top: 80px;
+}
+
+.review-card {
+    background: white;
+    border-radius: 16px;
+    padding: 32px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e5e7eb;
+    transition: all 0.3s ease;
+}
+
+.review-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+    border-color: #374151;
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.review-stars {
+    display: flex;
+    gap: 4px;
+}
+
+.review-stars i {
+    color: #fbbf24;
+    font-size: 16px;
+}
+
+.review-date {
+    color: #9ca3af;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.review-content p {
+    color: #374151;
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 24px;
+    font-style: italic;
+}
+
+.review-author h4 {
+    color: #1f2937;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.review-author span {
+    color: #6b7280;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .team-grid,
+    .reviews-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        margin-top: 60px;
+    }
+    
+    .team-card,
+    .review-card {
+        padding: 32px 24px;
+    }
+}
+
+/* Floating Configurator Button */
+.floating-configurator-btn {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: #374151;
+    color: white;
+    padding: 16px 24px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 8px 24px rgba(55, 65, 81, 0.3);
+    z-index: 1001;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.floating-configurator-btn:hover {
+    background: #1f2937;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(55, 65, 81, 0.4);
+    color: white;
+}
+
+.floating-configurator-btn i {
+    font-size: 16px;
+}
+
+@media (max-width: 768px) {
+    .floating-configurator-btn {
+        bottom: 20px;
+        right: 20px;
+        padding: 14px 20px;
+        font-size: 13px;
+    }
+    
+    .floating-configurator-btn i {
+        font-size: 14px;
+    }
 } 

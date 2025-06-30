@@ -1,4 +1,35 @@
-/* Modern Minimalist Design */
+/* Modern Minimalist Design - Enhanced Traditional Blue Theme */
+
+/* Enhanced Color System */
+:root {
+    /* Primary Traditional Blue Scale */
+    --color-primary-50: #eff6ff;
+    --color-primary-600: #1565c0;    /* Keep traditional blue */
+    --color-primary-700: #1e40af;    /* Deeper blue variant */
+    --color-primary-800: #1e3a8a;
+    --color-primary-900: #1e3a8a;    /* Deep blue for text */
+    
+    /* Secondary Bright Blue Scale */
+    --color-secondary-500: #3b82f6;  /* Brighter blue secondary */
+    --color-secondary-600: #2563eb;
+    --color-secondary-700: #1d4ed8;
+    
+    /* Accent Heritage Gold Scale */
+    --color-accent-400: #fbbf24;     /* Gold accent for heritage */
+    --color-accent-500: #f59e0b;
+    --color-accent-600: #d97706;
+    
+    /* Enhanced Neutrals */
+    --color-neutral-50: #eff6ff;     /* Blue-tinted background */
+    --color-neutral-100: #dbeafe;
+    --color-neutral-200: #bfdbfe;
+    --color-neutral-300: #93c5fd;
+    --color-neutral-500: #3b82f6;
+    --color-neutral-700: #1d4ed8;
+    --color-neutral-800: #1e40af;
+    --color-neutral-900: #1e3a8a;    /* Deep blue for text */
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -42,7 +73,7 @@ body {
 }
 
 .nav-brand h2 {
-    color: #1565c0;
+    color: var(--color-primary-600);
     font-size: 24px;
     font-weight: 700;
     letter-spacing: -0.025em;
@@ -80,7 +111,7 @@ body {
 }
 
 .nav-menu a:hover {
-    color: #1565c0;
+    color: var(--color-primary-600);
     background: #f3f4f6;
 }
 
@@ -116,7 +147,7 @@ body {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(135deg, #1565c0 0%, #1976d2 100%);
+    background: linear-gradient(135deg, var(--color-primary-600) 0%, var(--color-secondary-500) 100%);
     color: white;
     padding: 120px 0 80px;
     min-height: 80vh;
@@ -126,7 +157,7 @@ body {
 
 .hero h1 {
     font-size: clamp(32px, 5vw, 56px);
-    margin-bottom: 24px;
+    margin-bottom: 40px;
     font-weight: 800;
     line-height: 1.1;
     letter-spacing: -0.025em;
@@ -135,7 +166,7 @@ body {
 .hero h2 {
     font-size: clamp(18px, 3vw, 24px);
     margin-bottom: 24px;
-    color: #bbdefb;
+    color: var(--color-accent-400);
     font-weight: 500;
 }
 
@@ -169,7 +200,7 @@ body {
 
 .btn-primary {
     background: #ffffff;
-    color: #1565c0;
+    color: var(--color-primary-600);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
@@ -259,7 +290,7 @@ body {
     background: white;
 }
 
-.about-grid {
+.about-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 64px;
@@ -693,4 +724,204 @@ body {
 
 html {
     scroll-behavior: smooth;
+}
+
+/* Team Section */
+.team {
+    padding: 100px 0;
+    background: #f9fafb;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 32px;
+    margin-top: 48px;
+}
+
+.team-card {
+    background: white;
+    border-radius: 12px;
+    padding: 32px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.team-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(21, 101, 192, 0.15);
+}
+
+.team-image {
+    width: 120px;
+    height: 150px;
+    background: #f3f4f6;
+    border-radius: 8px;
+    margin: 0 auto 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed #d1d5db;
+}
+
+.team-image i {
+    font-size: 32px;
+    color: #6b7280;
+    margin-bottom: 8px;
+}
+
+.placeholder-text {
+    font-size: 12px;
+    color: #6b7280;
+    font-weight: 500;
+}
+
+.team-info h3 {
+    color: #1a1a1a;
+    margin-bottom: 8px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.team-info h4 {
+    color: #1565c0;
+    margin-bottom: 16px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.team-info p {
+    color: #6b7280;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+/* Reviews Section */
+.reviews {
+    padding: 100px 0;
+    background: white;
+}
+
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 32px;
+    margin-top: 48px;
+}
+
+.review-card {
+    background: #f9fafb;
+    border-radius: 12px;
+    padding: 32px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.review-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(21, 101, 192, 0.15);
+    border: 1px solid #1565c0;
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.review-stars {
+    display: flex;
+    gap: 4px;
+}
+
+.review-stars i {
+    color: #fbbf24;
+    font-size: 18px;
+}
+
+.review-date {
+    color: #6b7280;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.review-content p {
+    color: #374151;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.review-author h4 {
+    color: #1a1a1a;
+    margin-bottom: 4px;
+    font-weight: 600;
+}
+
+.review-author span {
+    color: #1565c0;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .team-grid,
+    .reviews-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+    
+    .team-card,
+    .review-card {
+        padding: 24px;
+    }
+}
+
+/* Floating Configurator Button */
+.floating-configurator-btn {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: #1565c0;
+    color: white;
+    padding: 16px 24px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 8px 24px rgba(21, 101, 192, 0.3);
+    z-index: 1001;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.floating-configurator-btn:hover {
+    background: #1976d2;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(21, 101, 192, 0.4);
+    color: white;
+}
+
+.floating-configurator-btn i {
+    font-size: 16px;
+}
+
+@media (max-width: 768px) {
+    .floating-configurator-btn {
+        bottom: 20px;
+        right: 20px;
+        padding: 14px 20px;
+        font-size: 13px;
+    }
+    
+    .floating-configurator-btn i {
+        font-size: 14px;
+    }
 } 

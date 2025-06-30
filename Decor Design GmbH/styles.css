@@ -1,4 +1,35 @@
-/* Simple Clean Professional Design */
+/* Simple Clean Professional Design - Enhanced Teal Theme */
+
+/* Enhanced Color System */
+:root {
+    /* Primary Teal Scale */
+    --color-primary-50: #ecfeff;
+    --color-primary-600: #0891b2;    /* Brighter teal */
+    --color-primary-700: #0e7490;    /* Deeper teal variant */
+    --color-primary-800: #155e75;
+    --color-primary-900: #164e63;    /* Deep teal for text */
+    
+    /* Secondary Cyan Scale */
+    --color-secondary-500: #06b6d4;  /* Cyan secondary */
+    --color-secondary-600: #0891b2;
+    --color-secondary-700: #0e7490;
+    
+    /* Accent Bright Cyan Scale */
+    --color-accent-400: #22d3ee;     /* Bright cyan accent */
+    --color-accent-500: #06b6d4;
+    --color-accent-600: #0891b2;
+    
+    /* Enhanced Neutrals */
+    --color-neutral-50: #ecfeff;     /* Cyan-tinted background */
+    --color-neutral-100: #cffafe;
+    --color-neutral-200: #a5f3fc;
+    --color-neutral-300: #67e8f9;
+    --color-neutral-500: #06b6d4;
+    --color-neutral-700: #0e7490;
+    --color-neutral-800: #155e75;
+    --color-neutral-900: #164e63;    /* Deep teal for text */
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -8,7 +39,7 @@
 body {
     font-family: 'Arial', 'Helvetica', sans-serif;
     line-height: 1.6;
-    color: #333;
+    color: var(--color-neutral-900);
     background: #f8f9fa;
 }
 
@@ -20,7 +51,7 @@ body {
 
 /* Navigation */
 .navbar {
-    background: #0d7377;
+    background: var(--color-primary-600);
     position: fixed;
     top: 0;
     width: 100%;
@@ -45,7 +76,7 @@ body {
 }
 
 .nav-brand span {
-    color: #7fced9;
+    color: var(--color-accent-400);
     font-size: 12px;
     display: block;
     margin-top: -3px;
@@ -86,7 +117,7 @@ body {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(135deg, #0d7377 0%, #14a085 100%);
+    background: linear-gradient(135deg, var(--color-primary-600) 0%, var(--color-secondary-500) 100%);
     color: white;
     padding: 100px 0 60px;
     text-align: center;
@@ -101,7 +132,7 @@ body {
 .hero h2 {
     font-size: 24px;
     margin-bottom: 20px;
-    color: #7fced9;
+    color: var(--color-accent-400);
 }
 
 .hero p {
@@ -132,7 +163,7 @@ body {
 
 .btn-primary {
     background: #fff;
-    color: #0d7377;
+    color: var(--color-primary-600);
 }
 
 .btn-primary:hover {
@@ -148,7 +179,7 @@ body {
 
 .btn-secondary:hover {
     background: white;
-    color: #0d7377;
+    color: var(--color-primary-600);
 }
 
 /* Services Section */
@@ -186,7 +217,7 @@ body {
 .service-icon {
     width: 70px;
     height: 70px;
-    background: #0d7377;
+    background: var(--color-primary-600);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -216,7 +247,7 @@ body {
     background: #f8f9fa;
 }
 
-.about-grid {
+.about-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 50px;
@@ -437,7 +468,7 @@ body {
         justify-content: center;
     }
     
-    .about-grid,
+    .about-content,
     .contact-grid {
         grid-template-columns: 1fr;
         gap: 30px;
@@ -482,4 +513,225 @@ body {
 
 html {
     scroll-behavior: smooth;
+}
+
+/* Team Section */
+.team {
+    padding: 100px 0;
+    background: #f0fdfa;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 32px;
+    margin-top: 48px;
+}
+
+.team-card {
+    background: white;
+    border-radius: 8px;
+    padding: 32px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border: 1px solid #e6fffa;
+}
+
+.team-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(13, 115, 119, 0.15);
+    border-color: #0d7377;
+}
+
+.team-image {
+    width: 120px;
+    height: 150px;
+    background: #ccfbf1;
+    border-radius: 8px;
+    margin: 0 auto 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed #99f6e4;
+}
+
+.team-image i {
+    font-size: 32px;
+    color: #14b8a6;
+    margin-bottom: 8px;
+}
+
+.team-image .placeholder-text {
+    font-size: 12px;
+    color: #5eead4;
+    font-weight: 500;
+}
+
+.team-info h3 {
+    color: #134e4a;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.team-info h4 {
+    color: #0d7377;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.team-info p {
+    color: #0f766e;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* Reviews Section */
+.reviews {
+    padding: 100px 0;
+    background: white;
+}
+
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 32px;
+    margin-top: 48px;
+}
+
+.review-card {
+    background: #fff;
+    border: 1px solid #e6fffa;
+    border-radius: 8px;
+    padding: 32px;
+    transition: all 0.3s ease;
+}
+
+.review-card:hover {
+    border-color: #0d7377;
+    box-shadow: 0 8px 24px rgba(13, 115, 119, 0.1);
+    transform: translateY(-2px);
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.review-stars {
+    display: flex;
+    gap: 2px;
+}
+
+.review-stars i {
+    color: #fbbf24;
+    font-size: 16px;
+}
+
+.review-date {
+    color: #0f766e;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.review-content {
+    margin-bottom: 24px;
+}
+
+.review-content p {
+    color: #134e4a;
+    font-size: 16px;
+    line-height: 1.7;
+    font-style: italic;
+}
+
+.review-author h4 {
+    color: #134e4a;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.review-author span {
+    color: #0d7377;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .team {
+        padding: 80px 0;
+    }
+    
+    .reviews {
+        padding: 80px 0;
+    }
+    
+    .team-grid,
+    .reviews-grid {
+        gap: 24px;
+    }
+    
+    .team-card,
+    .review-card {
+        padding: 24px;
+    }
+    
+    .team-image {
+        width: 100px;
+        height: 125px;
+    }
+}
+
+/* Floating Configurator Button */
+.floating-configurator-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #0d7377;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-family: 'Arial', 'Helvetica', sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 5px 15px rgba(13, 115, 119, 0.3);
+    z-index: 1001;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.floating-configurator-btn:hover {
+    background: #14a085;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(13, 115, 119, 0.4);
+    color: white;
+}
+
+.floating-configurator-btn i {
+    font-size: 16px;
+}
+
+@media (max-width: 768px) {
+    .floating-configurator-btn {
+        bottom: 15px;
+        right: 15px;
+        padding: 12px 16px;
+        font-size: 13px;
+    }
+    
+    .floating-configurator-btn i {
+        font-size: 14px;
+    }
 } 

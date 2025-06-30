@@ -1,4 +1,35 @@
-/* Modern Minimalistic Design - Clean & Breathable */
+/* Modern Minimalistic Design - Enhanced Professional Blue Theme */
+
+/* Enhanced Color System */
+:root {
+    /* Primary Professional Blue Scale */
+    --color-primary-50: #f8fafc;
+    --color-primary-600: #2563eb;    /* Keep professional blue */
+    --color-primary-700: #1d4ed8;    /* Deeper blue variant */
+    --color-primary-800: #1e40af;
+    --color-primary-900: #1e293b;    /* Deep slate for text */
+    
+    /* Secondary Indigo Scale */
+    --color-secondary-500: #6366f1;  /* Indigo secondary */
+    --color-secondary-600: #4f46e5;
+    --color-secondary-700: #4338ca;
+    
+    /* Accent Sky Blue Scale */
+    --color-accent-400: #60a5fa;     /* Sky blue accent */
+    --color-accent-500: #3b82f6;
+    --color-accent-600: #2563eb;
+    
+    /* Enhanced Neutrals */
+    --color-neutral-50: #f8fafc;     /* Cool white background */
+    --color-neutral-100: #e2e8f0;
+    --color-neutral-200: #cbd5e1;
+    --color-neutral-300: #94a3b8;
+    --color-neutral-500: #64748b;
+    --color-neutral-700: #334155;
+    --color-neutral-800: #1e293b;
+    --color-neutral-900: #0f172a;    /* Deep navy for text */
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -47,7 +78,7 @@ body {
 }
 
 .nav-brand i {
-    color: #2563eb;
+    color: var(--color-primary-600);
     font-size: 24px;
 }
 
@@ -90,7 +121,7 @@ body {
 }
 
 .nav-menu a:hover {
-    color: #2563eb;
+    color: var(--color-primary-600);
 }
 
 .nav-menu a:hover::after {
@@ -100,7 +131,7 @@ body {
     left: 0;
     right: 0;
     height: 2px;
-    background: #2563eb;
+    background: var(--color-primary-600);
     border-radius: 1px;
 }
 
@@ -122,7 +153,7 @@ body {
 
 /* Hero Section - Clean & Spacious */
 .hero {
-    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    background: linear-gradient(135deg, var(--color-primary-600) 0%, var(--color-secondary-500) 100%);
     color: white;
     padding: 160px 0 120px;
     min-height: 100vh;
@@ -137,7 +168,7 @@ body {
 .badge {
     display: inline-block;
     background: rgba(255, 255, 255, 0.15);
-    color: #dbeafe;
+    color: var(--color-neutral-100);
     padding: 8px 16px;
     border-radius: 24px;
     font-size: 14px;
@@ -157,14 +188,14 @@ body {
 .hero-subtitle {
     font-size: clamp(20px, 3vw, 28px);
     font-weight: 600;
-    color: #bfdbfe;
+    color: var(--color-accent-400);
     margin-bottom: 24px;
     line-height: 1.3;
 }
 
 .hero-description {
     font-size: 18px;
-    color: #e5e7eb;
+    color: var(--color-neutral-100);
     margin-bottom: 48px;
     line-height: 1.7;
     max-width: 600px;
@@ -181,7 +212,7 @@ body {
     align-items: center;
     gap: 8px;
     background: #ffffff;
-    color: #2563eb;
+    color: var(--color-primary-600);
     padding: 16px 32px;
     border-radius: 12px;
     text-decoration: none;
@@ -242,37 +273,38 @@ body {
     line-height: 1.6;
 }
 
-/* Services Grid */
+/* Services */
 .services {
-    background: #f9fafb;
+    padding: 120px 0;
 }
 
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 32px;
+    margin-top: 80px;
 }
 
 .service-card {
     background: white;
-    padding: 40px 32px;
+    padding: 48px 32px;
     border-radius: 16px;
     text-align: center;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border: 1px solid #f3f4f6;
     transition: all 0.3s ease;
-    border: 1px solid #e5e7eb;
 }
 
 .service-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    border-color: #2563eb;
 }
 
 .service-icon {
     width: 80px;
     height: 80px;
     background: linear-gradient(135deg, #2563eb, #1d4ed8);
-    border-radius: 16px;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -280,21 +312,149 @@ body {
 }
 
 .service-icon i {
-    font-size: 32px;
     color: white;
+    font-size: 32px;
 }
 
 .service-card h3 {
+    color: #1f2937;
     font-size: 24px;
     font-weight: 700;
-    color: #1f2937;
     margin-bottom: 16px;
 }
 
 .service-card p {
-    font-size: 16px;
     color: #6b7280;
+    font-size: 16px;
     line-height: 1.6;
+}
+
+/* About Section */
+.about {
+    padding: 120px 0;
+    background: #f9fafb;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.about-text h2 {
+    color: #1f2937;
+    font-size: 42px;
+    font-weight: 800;
+    margin-bottom: 24px;
+    line-height: 1.2;
+}
+
+.about-text .lead {
+    font-size: 20px;
+    color: #4b5563;
+    font-weight: 600;
+    margin-bottom: 24px;
+    line-height: 1.4;
+}
+
+.about-text p {
+    color: #6b7280;
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 32px;
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    background: white;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    transition: all 0.2s ease;
+}
+
+.feature:hover {
+    border-color: #2563eb;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.1);
+}
+
+.feature i {
+    color: #2563eb;
+    font-size: 20px;
+    min-width: 20px;
+}
+
+.feature span {
+    color: #374151;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.about-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.company-info {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e5e7eb;
+    width: 100%;
+    max-width: 400px;
+}
+
+.info-item {
+    text-align: center;
+    padding: 20px 0;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.info-item:last-child {
+    border-bottom: none;
+}
+
+.info-item h4 {
+    color: #374151;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+}
+
+.info-item p {
+    color: #2563eb;
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+    
+    .about-text h2 {
+        font-size: 32px;
+    }
+    
+    .features {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* Pricing Section - Clean Cards */
@@ -675,4 +835,204 @@ body {
 /* Smooth Scrolling */
 html {
     scroll-behavior: smooth;
+}
+
+/* Team Section */
+.team {
+    padding: 100px 0;
+    background: #f8fafc;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 32px;
+    margin-top: 48px;
+}
+
+.team-card {
+    background: white;
+    border-radius: 12px;
+    padding: 32px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.team-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.15);
+}
+
+.team-image {
+    width: 120px;
+    height: 150px;
+    background: #f1f5f9;
+    border-radius: 8px;
+    margin: 0 auto 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed #cbd5e1;
+}
+
+.team-image i {
+    font-size: 32px;
+    color: #64748b;
+    margin-bottom: 8px;
+}
+
+.placeholder-text {
+    font-size: 12px;
+    color: #64748b;
+    font-weight: 500;
+}
+
+.team-info h3 {
+    color: #1e293b;
+    margin-bottom: 8px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.team-info h4 {
+    color: #2563eb;
+    margin-bottom: 16px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.team-info p {
+    color: #64748b;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+/* Reviews Section */
+.reviews {
+    padding: 100px 0;
+    background: white;
+}
+
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 32px;
+    margin-top: 48px;
+}
+
+.review-card {
+    background: #f8fafc;
+    border-radius: 12px;
+    padding: 32px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.review-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.15);
+    border: 1px solid #2563eb;
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.review-stars {
+    display: flex;
+    gap: 4px;
+}
+
+.review-stars i {
+    color: #fbbf24;
+    font-size: 18px;
+}
+
+.review-date {
+    color: #64748b;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.review-content p {
+    color: #374151;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.review-author h4 {
+    color: #1e293b;
+    margin-bottom: 4px;
+    font-weight: 600;
+}
+
+.review-author span {
+    color: #2563eb;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .team-grid,
+    .reviews-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+    
+    .team-card,
+    .review-card {
+        padding: 24px;
+    }
+}
+
+/* Floating Configurator Button */
+.floating-configurator-btn {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: #2563eb;
+    color: white;
+    padding: 16px 24px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.3);
+    z-index: 1001;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.floating-configurator-btn:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(37, 99, 235, 0.4);
+    color: white;
+}
+
+.floating-configurator-btn i {
+    font-size: 16px;
+}
+
+@media (max-width: 768px) {
+    .floating-configurator-btn {
+        bottom: 20px;
+        right: 20px;
+        padding: 14px 20px;
+        font-size: 13px;
+    }
+    
+    .floating-configurator-btn i {
+        font-size: 14px;
+    }
 } 
