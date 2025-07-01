@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cantillo Maler GmbH - Professionelle Malerarbeiten</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="/Cantillo%20Maler%20GmbH/styles.css">
+    <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
     <!-- Navigation -->
@@ -34,6 +34,22 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
+        <!-- Hero Background Video -->
+        <div class="hero-video-container">
+            <video 
+                class="hero-video" 
+                autoplay 
+                muted 
+                loop 
+                playsinline
+                poster="../assets/images/hero-poster.jpg">
+                <source src="../assets/videos/hero/painting-process.mp4" type="video/mp4">
+                <!-- Fallback for browsers that don't support video -->
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="hero-overlay"></div>
+        
         <div class="container">
             <div class="hero-content">
                 <div class="badge">Luigi Cantillo</div>
@@ -170,8 +186,7 @@
             <div class="team-grid">
                 <div class="team-card">
                     <div class="team-image">
-                        <i class="fas fa-user"></i>
-                        <span class="placeholder-text">Foto folgt</span>
+                        <img src="../assets/images/team/team-member-1.jpg" alt="Luigi Cantillo - Geschäftsführer & Malermeister">
                     </div>
                     <div class="team-info">
                         <h3>Luigi Cantillo</h3>
@@ -181,8 +196,7 @@
                 </div>
                 <div class="team-card">
                     <div class="team-image">
-                        <i class="fas fa-user"></i>
-                        <span class="placeholder-text">Foto folgt</span>
+                        <img src="../assets/images/team/team-member-2.jpg" alt="Marco Rossi - Malergeselle">
                     </div>
                     <div class="team-info">
                         <h3>Marco Rossi</h3>
@@ -192,8 +206,7 @@
                 </div>
                 <div class="team-card">
                     <div class="team-image">
-                        <i class="fas fa-user"></i>
-                        <span class="placeholder-text">Foto folgt</span>
+                        <img src="../assets/images/team/team-member-3.jpg" alt="Stefan Weber - Fassadenspezialist">
                     </div>
                     <div class="team-info">
                         <h3>Stefan Weber</h3>

@@ -32,6 +32,22 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
+        <!-- Hero Background Video -->
+        <div class="hero-video-container">
+            <video 
+                class="hero-video" 
+                autoplay 
+                muted 
+                loop 
+                playsinline
+                poster="../assets/images/hero-poster.jpg">
+                <source src="../assets/videos/hero/painting-process.mp4" type="video/mp4">
+                <!-- Fallback for browsers that don't support video -->
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="hero-overlay"></div>
+        
         <div class="container">
             <h1>Der Maler in Ihrer Nähe</h1>
             <h2>Mit Erfahrung und Kompetenz für Ihren Wohn(t)raum</h2>
@@ -142,8 +158,7 @@
             <div class="team-grid">
                 <div class="team-card">
                     <div class="team-image">
-                        <i class="fas fa-user"></i>
-                        <span class="placeholder-text">Foto folgt</span>
+                        <img src="../../assets/images/team/team-member-1.jpg" alt="Andreas Bernhard - Geschäftsführer & Malermeister">
                     </div>
                     <div class="team-info">
                         <h3>Andreas Bernhard</h3>
@@ -153,8 +168,7 @@
                 </div>
                 <div class="team-card">
                     <div class="team-image">
-                        <i class="fas fa-user"></i>
-                        <span class="placeholder-text">Foto folgt</span>
+                        <img src="../../assets/images/team/team-member-2.jpg" alt="Maria Bernhard - Farbdesignerin & Projektleiterin">
                     </div>
                     <div class="team-info">
                         <h3>Maria Bernhard</h3>
@@ -164,8 +178,7 @@
                 </div>
                 <div class="team-card">
                     <div class="team-image">
-                        <i class="fas fa-user"></i>
-                        <span class="placeholder-text">Foto folgt</span>
+                        <img src="../../assets/images/team/team-member-3.jpg" alt="Lukas Schmidt - Fachvorarbeiter">
                     </div>
                     <div class="team-info">
                         <h3>Lukas Schmidt</h3>

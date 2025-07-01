@@ -34,12 +34,28 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
+        <!-- Hero Background Video -->
+        <div class="hero-video-container">
+            <video 
+                class="hero-video" 
+                autoplay 
+                muted 
+                loop 
+                playsinline
+                poster="../assets/images/hero-poster.jpg">
+                <source src="../assets/videos/hero/painting-process.mp4" type="video/mp4">
+                <!-- Fallback for browsers that don't support video -->
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="hero-overlay"></div>
+        
         <div class="container">
             <div class="hero-content">
                 <div class="badge">Familienunternehmen seit 1995</div>
                 <h1>Malerbetrieb Steiner</h1>
                 <p class="hero-subtitle">Wie Steiner malt keiner</p>
-<parameter name="hero-description">
+                <p class="hero-description">
                     Ihr Malerbetrieb aus Winterthur. Wie Steiner malt keiner - 
                     wir sind Ihr zuverlässiger Partner für professionelle Malerarbeiten 
                     und bringen mit Erfahrung und Qualität Farbe in Ihr Leben.
@@ -169,8 +185,7 @@
             <div class="team-grid">
                 <div class="team-card">
                     <div class="team-image">
-                        <i class="fas fa-user"></i>
-                        <span class="placeholder-text">Foto folgt</span>
+                        <img src="../../assets/images/team/team-member-1.jpg" alt="Thomas Steiner - Geschäftsführer & Malermeister">
                     </div>
                     <div class="team-info">
                         <h3>Thomas Steiner</h3>
@@ -180,8 +195,7 @@
                 </div>
                 <div class="team-card">
                     <div class="team-image">
-                        <i class="fas fa-user"></i>
-                        <span class="placeholder-text">Foto folgt</span>
+                        <img src="../../assets/images/team/team-member-2.jpg" alt="Lisa Weber - Umwelt-Farbberaterin">
                     </div>
                     <div class="team-info">
                         <h3>Lisa Weber</h3>
@@ -191,8 +205,7 @@
                 </div>
                 <div class="team-card">
                     <div class="team-image">
-                        <i class="fas fa-user"></i>
-                        <span class="placeholder-text">Foto folgt</span>
+                        <img src="../../assets/images/team/team-member-3.jpg" alt="Max Brunner - Ökobau-Spezialist">
                     </div>
                     <div class="team-info">
                         <h3>Max Brunner</h3>

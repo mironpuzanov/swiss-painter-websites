@@ -34,6 +34,22 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
+        <!-- Hero Background Video -->
+        <div class="hero-video-container">
+            <video 
+                class="hero-video" 
+                autoplay 
+                muted 
+                loop 
+                playsinline
+                poster="../assets/images/hero-poster.jpg">
+                <source src="../assets/videos/hero/painting-process.mp4" type="video/mp4">
+                <!-- Fallback for browsers that don't support video -->
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="hero-overlay"></div>
+        
         <div class="container">
             <div class="hero-content">
                 <div class="badge">Bauunternehmen</div>
@@ -163,8 +179,7 @@
             <div class="team-grid">
                 <div class="team-card">
                     <div class="team-image">
-                        <i class="fas fa-user"></i>
-                        <span class="placeholder-text">Foto folgt</span>
+                        <img src="../../assets/images/team/team-member-1.jpg" alt="Heinrich Lorenz - Geschäftsführer & Bauingenieur">
                     </div>
                     <div class="team-info">
                         <h3>Heinrich Lorenz</h3>
@@ -174,8 +189,7 @@
                 </div>
                 <div class="team-card">
                     <div class="team-image">
-                        <i class="fas fa-user"></i>
-                        <span class="placeholder-text">Foto folgt</span>
+                        <img src="../../assets/images/team/team-member-2.jpg" alt="Andreas Weber - Bauleiter & Projektmanager">
                     </div>
                     <div class="team-info">
                         <h3>Andreas Weber</h3>
@@ -185,8 +199,7 @@
                 </div>
                 <div class="team-card">
                     <div class="team-image">
-                        <i class="fas fa-user"></i>
-                        <span class="placeholder-text">Foto folgt</span>
+                        <img src="../../assets/images/team/team-member-3.jpg" alt="Markus Bauer - Malermeister & Oberflächenexperte">
                     </div>
                     <div class="team-info">
                         <h3>Markus Bauer</h3>
