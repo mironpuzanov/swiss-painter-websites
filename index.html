@@ -8,8 +8,51 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
 </head>
 <body class="bg-gray-50 min-h-screen p-8">
-    <!-- Main Content -->
-    <main class="max-w-7xl mx-auto">
+    <!-- Password Protection Overlay -->
+    <div id="auth-overlay" class="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center z-50">
+        <div class="bg-white rounded-lg shadow-xl p-8 max-w-md w-full mx-4">
+            <div class="text-center mb-6">
+                <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-lock text-blue-600 text-2xl"></i>
+                </div>
+                <h2 class="text-2xl font-bold text-gray-900 mb-2">Dashboard Zugang</h2>
+                <p class="text-gray-600">Bitte geben Sie den Zugangscode ein</p>
+            </div>
+            
+            <form id="auth-form" class="space-y-4">
+                <div>
+                    <label for="access-code" class="block text-sm font-medium text-gray-700 mb-2">Zugangscode</label>
+                    <input 
+                        type="password" 
+                        id="access-code" 
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-center text-lg tracking-wider"
+                        placeholder="••••••"
+                        autocomplete="off"
+                        maxlength="20">
+                </div>
+                
+                <div id="error-message" class="hidden text-red-600 text-sm text-center bg-red-50 p-3 rounded-lg">
+                    <i class="fas fa-exclamation-circle mr-1"></i>
+                    Ungültiger Zugangscode. Bitte versuchen Sie es erneut.
+                </div>
+                
+                <button 
+                    type="submit" 
+                    class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-4 rounded-lg transition-colors">
+                    <i class="fas fa-unlock mr-2"></i>
+                    Zugang gewähren
+                </button>
+            </form>
+            
+            <div class="mt-6 text-center text-xs text-gray-500">
+                <i class="fas fa-shield-alt mr-1"></i>
+                Sichere Authentifizierung
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content (Hidden by default) -->
+    <main id="main-content" class="max-w-7xl mx-auto hidden">
         <div class="mb-8">
             <h1 class="text-3xl font-bold text-gray-900 mb-2">Maler Betriebe</h1>
             <p class="text-gray-600">Übersicht aller 14 Schweizer Maler- und Baubetriebe</p>
@@ -318,20 +361,101 @@
             grid.innerHTML = companies.map(createCompanyCard).join('');
         }
 
-        // Initialize
-        renderCompanies();
+        // Authentication System
+        const ACCESS_CODE = 'MALER2024!'; // Change this to your desired access code
+        const SESSION_KEY = 'dashboard_authenticated';
 
-        // Search functionality
-        document.querySelector('input[placeholder="Suchen..."]').addEventListener('input', function(e) {
-            const searchTerm = e.target.value.toLowerCase();
-            const filteredCompanies = companies.filter(company => 
-                company.name.toLowerCase().includes(searchTerm) ||
-                company.location.toLowerCase().includes(searchTerm) ||
-                company.specialties.some(specialty => specialty.toLowerCase().includes(searchTerm))
-            );
+        function checkAuthentication() {
+            // Check if already authenticated in this session
+            if (sessionStorage.getItem(SESSION_KEY) === 'true') {
+                showDashboard();
+                return;
+            }
             
-            const grid = document.getElementById('companies-grid');
-            grid.innerHTML = filteredCompanies.map(createCompanyCard).join('');
+            // Show auth overlay
+            showAuthOverlay();
+        }
+
+        function showAuthOverlay() {
+            document.getElementById('auth-overlay').classList.remove('hidden');
+            document.getElementById('main-content').classList.add('hidden');
+            // Focus on input field
+            setTimeout(() => {
+                document.getElementById('access-code').focus();
+            }, 100);
+        }
+
+        function showDashboard() {
+            document.getElementById('auth-overlay').classList.add('hidden');
+            document.getElementById('main-content').classList.remove('hidden');
+            renderCompanies(); // Initialize the dashboard
+            
+            // Initialize search functionality after dashboard is shown
+            initializeSearch();
+        }
+
+        function initializeSearch() {
+            // Search functionality
+            const searchInput = document.querySelector('input[placeholder="Suchen..."]');
+            if (searchInput && !searchInput.hasAttribute('data-initialized')) {
+                searchInput.setAttribute('data-initialized', 'true');
+                searchInput.addEventListener('input', function(e) {
+                    const searchTerm = e.target.value.toLowerCase();
+                    const filteredCompanies = companies.filter(company => 
+                        company.name.toLowerCase().includes(searchTerm) ||
+                        company.location.toLowerCase().includes(searchTerm) ||
+                        company.specialties.some(specialty => specialty.toLowerCase().includes(searchTerm))
+                    );
+                    
+                    const grid = document.getElementById('companies-grid');
+                    grid.innerHTML = filteredCompanies.map(createCompanyCard).join('');
+                });
+            }
+        }
+
+        function showError() {
+            const errorEl = document.getElementById('error-message');
+            errorEl.classList.remove('hidden');
+            // Clear input
+            document.getElementById('access-code').value = '';
+            document.getElementById('access-code').focus();
+            
+            // Hide error after 3 seconds
+            setTimeout(() => {
+                errorEl.classList.add('hidden');
+            }, 3000);
+        }
+
+        // Handle form submission
+        document.getElementById('auth-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const enteredCode = document.getElementById('access-code').value;
+            
+            if (enteredCode === ACCESS_CODE) {
+                // Store authentication in session
+                sessionStorage.setItem(SESSION_KEY, 'true');
+                showDashboard();
+            } else {
+                showError();
+            }
+        });
+
+        // Handle Enter key on input
+        document.getElementById('access-code').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                document.getElementById('auth-form').dispatchEvent(new Event('submit'));
+            }
+        });
+
+        // Initialize authentication check when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            checkAuthentication();
+        });
+
+        // Clear authentication when page is closed/refreshed (optional)
+        window.addEventListener('beforeunload', function() {
+            // Uncomment the line below if you want users to re-enter code every time
+            // sessionStorage.removeItem(SESSION_KEY);
         });
     </script>
 </body>
