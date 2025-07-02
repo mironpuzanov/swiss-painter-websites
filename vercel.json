@@ -12,9 +12,17 @@
     {
       "src": "**/*.js",
       "use": "@vercel/static"
+    },
+    {
+      "src": "assets/**/*",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
+    {
+      "src": "/assets/(.*)",
+      "dest": "/assets/$1"
+    },
     {
       "src": "/crncalo$",
       "dest": "/Crncalo%20Maler%20Gipsergesch%C3%A4ft/index.html"
@@ -144,7 +152,7 @@
       "dest": "/Lorenz%20Bau%20GmbH/$1"
     },
     {
-      "src": "/(.*\\.(css|js|ico|png|jpg|jpeg|gif|svg))$",
+      "src": "/(.*\\.(css|js|ico|png|jpg|jpeg|gif|svg|mp4|webm|mov))$",
       "dest": "/$1"
     },
     {
